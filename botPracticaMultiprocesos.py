@@ -11,7 +11,7 @@ tokenTelegram=""
 def procesarImagen(rutaEntrada,rutaSalida):
     try:
         #Paso3. Cargar un modelo de reconocimiento facial
-        reconocimiento=cv2.CascadeClassifier(cv2.data.haarcascades+'haarcascades_frontalface_default.xml')
+        reconocimiento=cv2.CascadeClassifier(cv2.data.haarcascades+'haarcascade_frontalface_default.xml')
 
         imagen=cv2.imread(rutaEntrada) #leer la imagen
         if imagen is None:
@@ -19,7 +19,7 @@ def procesarImagen(rutaEntrada,rutaSalida):
             return
         #Aplicar los filtros de escala de grises 
         grises=cv2.cvtColor(imagen,cv2.COLOR_BGR2GRAY)
-        rostros=reconocimiento.detectMultiScale(grises,1.3,5) 
+        rostros=reconocimiento.detectMultiScale(grises,1.1,5) 
         #Escalas de deteccion
         #1.1=Mas precisa pero es mas lento(puede detectar mas rostros)
         #1.3=Balanceado (puede omitir algunos rostros mas pequeños)
