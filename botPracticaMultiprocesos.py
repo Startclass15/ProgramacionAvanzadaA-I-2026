@@ -7,7 +7,7 @@ from telegram.ext import ApplicationBuilder,MessageHandler,filters,ContextTypes
 import uuid #dependencia para generar id aleatorios
 
 
-tokenTelegram=""
+tokenTelegram="8697815171:AAFnUeMn4mRHiP-eKGakOvrwGOYcss2s0r0"
 
 #Paso2. Crear la funcion para procesar la Imagen
 def procesarImagen(rutaEntrada,rutaSalida):
@@ -22,7 +22,7 @@ def procesarImagen(rutaEntrada,rutaSalida):
         
         #Aplicar los filtros de escala de grises 
         grises=cv2.cvtColor(imagen,cv2.COLOR_BGR2GRAY)
-        rostros=reconocimiento.detectMultiScale(grises,1.3,5) 
+        rostros=reconocimiento.detectMultiScale(grises,1.1,5) 
 
         if len(rostros) == 0:
             print("No se detectaron rostros")
