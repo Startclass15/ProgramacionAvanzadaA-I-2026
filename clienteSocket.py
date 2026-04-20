@@ -2,7 +2,7 @@
 import socket
 import threading
 
-host=""
+host="192.168.172.254"
 puerto=5000
 
 def recibirMensajes(cliente):
