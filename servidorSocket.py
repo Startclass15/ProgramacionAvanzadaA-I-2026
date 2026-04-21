@@ -5,6 +5,7 @@ host="0.0.0.0"
 puerto=5000
 
 clientes=[]
+nombres=[]
 
 def enviarMensajeTodos(mensaje,clienteActual):
     for cliente in clientes:
@@ -24,7 +25,7 @@ def manejarCliente(cliente):
             clientes.remove(cliente)
             cliente.close()
             break
-        
+
 def iniciarServidor():
     servidor=socket.socket(socket.AF_INET,socket.SOCK_STREAM)
     servidor.bind((host,puerto))
@@ -32,7 +33,13 @@ def iniciarServidor():
     print("Servidor Activo escuchando solicitudes...")
     while True:
         cliente,direccion=servidor.accept()
-        print("Servidor conectado con las ips")
+        #Solicitar autentificacion
+        cliente.send("Nombre".encode("utf-8"))
+        nombre=cliente.recv(1024).decode("utf-8")
+        nombres.append(nombre)
+        print(f"{nombre} se unio al chat...")
+
+        print("Servidor conectado con las ips",direccion)
         clientes.append(cliente)
         hilo=threading.Thread(target=manejarCliente,args=(cliente,))
         hilo.start()
