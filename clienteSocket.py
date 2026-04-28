@@ -18,11 +18,11 @@ def recibirMensajes(cliente):
 def enviarMensajes(cliente):
     while True:
         mensajes=input("Ingrese su mensaje: ")
-        mensajeFinal=f"{nombreUsuario}: {mensajes}"
+        mensajeFinal=f"{nombre}: {mensajes}"
         
         cliente.send(mensajeFinal.encode("utf-8"))
 
-nombreUsuario=input("Ingrese su nombre: ")
+nombre=input("Ingrese su nombre: ")
 
 def inicioCliente():
     cliente=socket.socket(socket.AF_INET,socket.SOCK_STREAM)
