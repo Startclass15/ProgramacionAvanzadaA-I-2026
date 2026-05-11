@@ -7,8 +7,8 @@ import threading
 import asyncio
 
 #Configurar Bot telegram
-tokenTelegram="8697815171:AAFnUeMn4mRHiP-eKGakOvrwGOYcss2s0r0"
-chat_id="1908147678"
+tokenTelegram=""
+chat_id=""
 
 
 # Crear la app
