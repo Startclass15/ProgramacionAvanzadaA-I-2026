@@ -1,6 +1,15 @@
 from flask import Flask
 from flask_socketio import SocketIO, send
 import os
+from telegram import Update
+from telegram.ext import ApplicationBuilder, MessageHandler,filters,ContextTypes
+import threading
+import asyncio
+
+#Configurar Bot telegram
+tokenTelegram="8697815171:AAFnUeMn4mRHiP-eKGakOvrwGOYcss2s0r0"
+chat_id="1908147678"
+
 
 # Crear la app
 app = Flask(__name__)
